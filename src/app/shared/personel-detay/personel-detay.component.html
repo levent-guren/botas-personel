@@ -1,1 +1,19 @@
-<p>personel-detay works!</p>
+<div class="page">
+    <form [formGroup]="form">
+        <div class="mb-3">
+            <label for="personelId" class="form-label">Personel ID</label>
+            <input type="text" formControlName="personelID" class="form-control" id="personelId">
+        </div>
+        <div class="mb-3">
+            <label for="personelAdi" class="form-label">Personel Adı</label>
+            <input type="text" formControlName="personelAdi" class="form-control" id="personelAdi">
+        </div>
+        <div class="mb-3">
+            <label for="personelSoyadi" class="form-label">Personel Soyadi</label>
+            <input type="text" formControlName="personelSoyadi" class="form-control" id="personelSoyadi">
+        </div>
+    </form>
+    <div>
+        <button type="button" class="btn btn-primary" (click)="ara()">Ara</button>
+    </div>
+</div>

@@ -1,1 +1,8 @@
-<p>personel-kayit works!</p>
+<div class="page">
+    <div>
+        <app-personel-detay (arama)="arama($event)"></app-personel-detay>
+    </div>
+    <div>
+        <app-personel-liste [aramaKriteri]="aramaKriteri"></app-personel-liste>
+    </div>
+</div>
