@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Personel } from '../../beans/personel';
 import { PersonelService } from '../../service/personel.service';
 import { ToastrService } from 'ngx-toastr';
+import { PersonelAramaKriteri } from '../../beans/personel-arama-kriteri';
 
 @Component({
   selector: 'app-personel-liste',
@@ -12,11 +13,11 @@ import { ToastrService } from 'ngx-toastr';
 export class PersonelListeComponent {
   public personeller: Personel[] = [];
 
-  private _aramaKriteri = '';
+  private _aramaKriteri = new PersonelAramaKriteri();
 
   @Input()
-  get aramaKriteri(): string { return this._aramaKriteri }
-  set aramaKriteri(value: string) {
+  get aramaKriteri(): PersonelAramaKriteri { return this._aramaKriteri }
+  set aramaKriteri(value: PersonelAramaKriteri) {
     this._aramaKriteri = value;
     this.listeyiGuncelle();
   }
@@ -27,7 +28,7 @@ export class PersonelListeComponent {
   ) { }
 
   listeyiGuncelle() {
-    this.personelService.getPersoneller().subscribe({
+    this.personelService.getPersoneller(this._aramaKriteri).subscribe({
       next: (data) => {
         this.personeller = data;
       },

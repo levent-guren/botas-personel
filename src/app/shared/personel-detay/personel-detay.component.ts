@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 })
 export class PersonelDetayComponent {
   form: FormGroup;
-  @Output() arama = new EventEmitter();
+  @Output('arama') arama = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
